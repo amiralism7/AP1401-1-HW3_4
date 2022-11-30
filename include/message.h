@@ -4,7 +4,13 @@
 #include <iostream>
 #include <string>
 #include <ctime>
+#include <vector>
 
+//////////////////////////////
+//////////////////////////////
+///// class Message //////////
+//////////////////////////////
+//////////////////////////////
 
 class Message
 {
@@ -46,7 +52,11 @@ private:
     std::string time;     // creation time of the message
 };
 
-
+//////////////////////////////
+//////////////////////////////
+///// class TextMessage //////
+//////////////////////////////
+//////////////////////////////
 
 class TextMessage : public Message
 {
@@ -68,6 +78,45 @@ public:
 private:
     std::string text;
 };
+
+//////////////////////////////
+//////////////////////////////
+///// class VocieMessage /////
+//////////////////////////////
+//////////////////////////////
+
+class VoiceMessage : public Message
+{
+public:
+    VoiceMessage(std::string sender, std::string receiver);
+    std::vector<unsigned char> get_voice();
+
+    virtual void print(std::ostream &os) override{
+        os << "*************************" << std::endl;
+        os << this->get_sender() << " -> " << this->get_receiver() << std::endl;
+        os << "message type: voice" << std::endl;
+        os << "message time: " << this->get_time() << std::endl;
+        std::vector<unsigned char> _v{this->get_voice()};
+        os << "voice: " << 
+            static_cast<int>(_v[0]) << " " <<
+            static_cast<int>(_v[1]) << " " <<
+            static_cast<int>(_v[2]) << " " <<
+            static_cast<int>(_v[3]) << " " <<
+            static_cast<int>(_v[4]) << " " <<
+            std::endl;
+        os << "*************************" << std::endl;
+        os;
+        
+    }
+private:
+    std::vector<unsigned char> voice;
+};
+
+
+
+
+
+
 
 
 

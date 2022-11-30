@@ -8,22 +8,47 @@
 
 
 
+
+
+
+
+
+
+
 int main(int argc, char **argv)
 {
-    if (false) // make false to run unit-tests
+    if (true) // make false to run unit-tests
     {
-        // debug section
-        // Message msg1{"type1","sender1", "receiver1"};
-        // TextMessage txt1{"Hi Amir", "Ali", "Amir"};
-        // std::cout << txt1;
 
-        TextMessage textmsg("hello", "david", "jenifer");
-        Message* msg{&textmsg};
-        std::stringstream ss;
-        ss << *msg;
-        std::cout << ss.str() << std::endl;
+        Server server;
+        User david = server.create_user("david");
+        User jenifer = server.create_user("jenifer");
 
+        david.send_text_message("text 1", "jenifer");
+        jenifer.send_voice_message("david");
         
+
+        // std::cout << result << std::endl;
+        std::cout << server.get_messages().size() << std::endl;
+
+        std::cout << "In main, sever address is: " << &server << std::endl;
+        (server.get_messages()[server.get_messages().size()-1])->print(std::cout);
+        
+    
+        
+        
+
+
+    
+
+
+
+
+
+
+
+
+
     }
     else
     {

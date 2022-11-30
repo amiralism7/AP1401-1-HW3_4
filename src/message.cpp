@@ -14,7 +14,7 @@ Message::Message(std::string _type, std::string _sender, std::string _receiver):
     sender{_sender},
     receiver{_receiver}
 {
-    std::cout << "Constructor Message Called" << std::endl;
+    // std::cout << "Constructor Message Called" << std::endl;
     time_t ttime = std::time(0);
     tm *gmt_time = gmtime(&ttime);
     std::string dt = asctime(gmt_time);
@@ -24,7 +24,7 @@ Message::Message(std::string _type, std::string _sender, std::string _receiver):
 
 Message::Message(): Message::Message{"", "", ""}
 {
-    std::cout << "Default Constructor Message Called" << std::endl;
+    // std::cout << "Default Constructor Message Called" << std::endl;
 }
 
 // Defining Getter Functions
@@ -66,10 +66,26 @@ TextMessage::TextMessage(std::string _text, std::string _sender, std::string _re
     Message::Message{"text", _sender, _receiver},
     text{_text}
 {
-    std::cout << "Constructor TextMessage Called" << std::endl;
+    // std::cout << "Constructor TextMessage Called" << std::endl;
 }
 
 std::string TextMessage::get_text(){
     return text;
 }
 
+//////////////////////////////
+//////////////////////////////
+///// class VocieMessage /////
+//////////////////////////////
+//////////////////////////////
+
+VoiceMessage::VoiceMessage(std::string _sender, std::string _receiver):
+    Message::Message{"voice", _sender, _receiver},
+    voice{'a', 'b', 'c', 'd', 'e'}
+{
+    // std::cout << "Constructor VoiceMessage Called" << std::endl;
+}
+
+std::vector<unsigned char> VoiceMessage::get_voice(){
+    return voice;
+}
