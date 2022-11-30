@@ -19,15 +19,6 @@ public:
     bool send_text_message(std::string text, std::string receiver);
     bool send_voice_message(std::string receiver);
 
-
-
-
-
-
-
-
-    /////////// this should be private
-    // std::string private_key;
 private:
     std::string username;     // username of the user
     std::string private_key; // private key of the user

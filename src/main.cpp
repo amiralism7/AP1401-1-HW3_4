@@ -17,7 +17,7 @@
 
 int main(int argc, char **argv)
 {
-    if (true) // make false to run unit-tests
+    if (false) // make false to run unit-tests
     {
 
         Server server;
@@ -32,19 +32,8 @@ int main(int argc, char **argv)
         std::cout << server.get_messages().size() << std::endl;
 
         std::cout << "In main, sever address is: " << &server << std::endl;
-        // (server.get_messages()[server.get_messages().size()-1])->print(std::cout);
+        (server.get_messages()[server.get_messages().size()-1])->print(std::cout);
         
-
-        Message* tmp{server.get_messages()[server.get_messages().size()-1]};
-        std::cout << tmp->get_receiver() << std::endl;
-
-
-    
-
-
-
-
-
 
 
 

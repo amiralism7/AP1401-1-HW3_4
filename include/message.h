@@ -33,15 +33,15 @@ public:
         os;
     }
 
-    // template <typename T>
-    // friend std::ostream& operator<<(std::ostream &os, const T &c){
-    //     // T msg = *(const_cast<T*>(&c));
-    //     // msg.print(os);
+    template <typename T>
+    friend std::ostream& operator<<(std::ostream &os, const T &c){
+        // T msg = *(const_cast<T*>(&c));
+        // msg.print(os);
 
-    //     T* msg = (const_cast<T*>(&c));
-    //     msg->print(os);
-    //     return os;
-    // }
+        T* msg = (const_cast<T*>(&c));
+        msg->print(os);
+        return os;
+    }
 
 
     

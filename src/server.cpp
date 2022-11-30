@@ -37,13 +37,6 @@ User Server::create_user(std::string _username){
 
 
 
-
-
-
-
-
-
-
 bool Server::create_message(Message* msg, std::string signature){
     
     std::string msg_sender{msg->get_sender()};
@@ -54,16 +47,13 @@ bool Server::create_message(Message* msg, std::string signature){
         messages.push_back(msg);
     }
 
-
     // // Debug section
     //
     // (this->get_messages()[this->get_messages().size()-1])->print(std::cout);
     // std::cout << "In create_message, server address is: " << this << std::endl;
-    std::cout << msg->get_receiver() << std::endl;
+    // std::cout << msg->get_receiver() << std::endl;
     //
     //
-
-
 
     return authentic;
 }

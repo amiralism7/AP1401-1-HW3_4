@@ -23,12 +23,14 @@ bool User::send_text_message(std::string text, std::string receiver){
     }
     if (!flag)
         return false;
-    TextMessage textmsg(text, this->get_username(), receiver);
-    Message* msg{&textmsg};
+
 
     std::string tmp_username{this->get_username()};
     std::string tmp_pvkey{private_key};
     std::string tmp_pubkey{server->get_public_keys()[tmp_username]};
+
+    TextMessage* textmsg{new TextMessage {text, tmp_username, receiver}};
+    Message* msg = dynamic_cast<Message*> (textmsg);
 
     // std::cout << "username is: " << tmp_username << std::endl;
     // std::cout << "pvkey is: " << tmp_pvkey << std::endl;
@@ -36,10 +38,13 @@ bool User::send_text_message(std::string text, std::string receiver){
     // std::cout << "text is: " << text << std::endl;
 
     std::string signature = crypto::signMessage(tmp_pvkey, tmp_username);
-    bool result{server->create_message(&textmsg, signature)};
+    bool result{server->create_message(msg, signature)};
     return result;
     
 }
+
+
+
 
 bool User::send_voice_message(std::string receiver){
     bool flag{false};
@@ -53,18 +58,17 @@ bool User::send_voice_message(std::string receiver){
     if (!flag)
         return false;
 
-    VoiceMessage vociemsg(this->get_username(), receiver);
-    Message* msg{&vociemsg};
-
     std::string tmp_username{this->get_username()};
     std::string tmp_pvkey{private_key};
     std::string tmp_pubkey{server->get_public_keys()[tmp_username]};
+
+    VoiceMessage* vociemsg{new VoiceMessage {tmp_username, receiver}};
+    Message* msg = dynamic_cast<Message*> (vociemsg);
 
     // std::cout << "username is: " << tmp_username << std::endl;
     // std::cout << "pvkey is: " << tmp_pvkey << std::endl;
     // std::cout << "pubkey is: " << tmp_pubkey << std::endl;
     
-
     std::string signature = crypto::signMessage(tmp_pvkey, tmp_username);
     bool result{server->create_message(msg, signature)};
     return result;
