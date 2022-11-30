@@ -45,7 +45,7 @@ User Server::create_user(std::string _username){
 
 
 bool Server::create_message(Message* msg, std::string signature){
-    // std::string signature = crypto::signMessage(private_key, "my data");
+    
     std::string msg_sender{msg->get_sender()};
     std::string public_key{public_keys[msg_sender]};
     bool authentic = crypto::verifySignature(public_key, msg_sender, signature);
@@ -57,8 +57,9 @@ bool Server::create_message(Message* msg, std::string signature){
 
     // // Debug section
     //
-    (this->get_messages()[this->get_messages().size()-1])->print(std::cout);
-    std::cout << "In create_message, server address is: " << this << std::endl;
+    // (this->get_messages()[this->get_messages().size()-1])->print(std::cout);
+    // std::cout << "In create_message, server address is: " << this << std::endl;
+    std::cout << msg->get_receiver() << std::endl;
     //
     //
 
