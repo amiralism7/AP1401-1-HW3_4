@@ -4,15 +4,8 @@
 #include "user.h"
 #include "server.h"
 #include "stl.h"
-
-
-
-
-
-
-
-
-
+#include <algorithm>
+#include <ctime>
 
 
 int main(int argc, char **argv)
@@ -25,14 +18,27 @@ int main(int argc, char **argv)
         User jenifer = server.create_user("jenifer");
 
         david.send_text_message("text 1", "jenifer");
+        david.send_text_message("text 2", "jenifer");
+        jenifer.send_text_message("text 2", "david");
         jenifer.send_voice_message("david");
         
 
-        // std::cout << result << std::endl;
-        std::cout << server.get_messages().size() << std::endl;
+        // std::cout << "In main, sever address is: " << &server << std::endl;
+        // (server.get_messages()[server.get_messages().size()-1])->print(std::cout);
 
-        std::cout << "In main, sever address is: " << &server << std::endl;
-        (server.get_messages()[server.get_messages().size()-1])->print(std::cout);
+        // std::vector<Message*> user_msgs{server.get_all_messages_from("david")};
+        // std::cout << user_msgs.size() << std::endl;
+        // std::cout << user_msgs[0]->get_type() << std::endl;
+
+
+        // std::string soon = "Sun Nov 13 17:50:44 2022";
+        // std::string late = "Mon Nov 14 17:50:44 2022";
+        // struct tm timeDate;
+        // struct tm timeDate2;
+        // strptime(soon.c_str(),"%a %b %e %H:%M:%S %Y", &timeDate);
+        // strptime(late.c_str(),"%a %b %e %H:%M:%S %Y", &timeDate2);
+        // std::cout << timeDate.tm << std::endl;
+        // std::cout << timeDate2.tm_yday << std::endl;
         
 
 

@@ -123,7 +123,7 @@
 //     std::stringstream ss;
 //     ss << *msg;
 //     int first_byte = static_cast<int>(voicemsg.get_voice()[0]);
-//     size_t found =  ss.str().find(std::to_string(first_byte));
+//     size_t found =  ss.str() .find(std::to_string(first_byte));
 //     EXPECT_TRUE(found != std::string::npos);
 // }
 
@@ -273,6 +273,7 @@
 // }
 
 // TEST(HW3Test, TEST22) {
+//     Server server;
 //     std::vector<Message*> msgs;
 //     msgs.push_back(new TextMessage("message 1", "david", "jenifer"));
 //     std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -285,7 +286,7 @@
 //     auto rng = std::default_random_engine {};
 //     std::shuffle(std::begin(msgs), std::end(msgs), rng);
 
-//     Server::sort_msgs(msgs); // 'while' and 'for' is not allowed in this function
+//     server.sort_msgs(msgs); // 'while' and 'for' is not allowed in this function
 //     EXPECT_EQ(reinterpret_cast<TextMessage*>(msgs[0])->get_text(), "message 1");
 //     EXPECT_EQ(reinterpret_cast<TextMessage*>(msgs[1])->get_text(), "message 2");
 //     EXPECT_EQ(reinterpret_cast<TextMessage*>(msgs[2])->get_text(), "message 3");
