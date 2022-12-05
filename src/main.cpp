@@ -6,6 +6,9 @@
 #include "stl.h"
 #include <algorithm>
 #include <ctime>
+#include <set>
+#include <functional>
+#include <numeric>
 
 
 int main(int argc, char **argv)
@@ -13,14 +16,14 @@ int main(int argc, char **argv)
     if (false) // make false to run unit-tests
     {
 
-        Server server;
-        User david = server.create_user("david");
-        User jenifer = server.create_user("jenifer");
+        // Server server;
+        // User david = server.create_user("david");
+        // User jenifer = server.create_user("jenifer");
 
-        david.send_text_message("text 1", "jenifer");
-        david.send_text_message("text 2", "jenifer");
-        jenifer.send_text_message("text 2", "david");
-        jenifer.send_voice_message("david");
+        // david.send_text_message("text 1", "jenifer");
+        // david.send_text_message("text 2", "jenifer");
+        // jenifer.send_text_message("text 2", "david");
+        // jenifer.send_voice_message("david");
         
 
         // std::cout << "In main, sever address is: " << &server << std::endl;
@@ -39,8 +42,32 @@ int main(int argc, char **argv)
         // strptime(late.c_str(),"%a %b %e %H:%M:%S %Y", &timeDate2);
         // std::cout << timeDate.tm << std::endl;
         // std::cout << timeDate2.tm_yday << std::endl;
-        
 
+
+        // std::vector<int> v;
+        // initial_vector_with_3_mutiplies(v, 10);
+        // v.push_back(3);
+        // v.push_back(9);
+        // for (auto i : v)
+        //     std::cout << i << " ";
+        // std::cout << std::endl;
+        // std::set<int, std::less<>> my_set{v.begin(), v.end()};
+        // for (auto i : my_set)
+        //     std::cout << i << " ";
+        // std::cout << std::endl;
+        // std::cout << my_set.size() << std::endl;
+
+        // char separator = '*';
+        // std::vector<int> v{1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 14};
+        // std::cout << v.back() << std::endl;
+        // std::string str = std::accumulate(v.rbegin() + 1, v.rend(),
+        //                 std::to_string(v.back()), 
+        //                 [separator](std::string _str, int _v)
+        //                 {
+        //                     return _str + separator + std::to_string(_v);
+        //                 });
+
+        // std::cout << str << std::endl;
 
 
 

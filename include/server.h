@@ -29,7 +29,7 @@ public:
     std::vector<Message*> get_all_messages_from(std::string username);
     std::vector<Message*> get_all_messages_to(std::string username);
     std::vector<Message*> get_chat(std::string user1, std::string user2);
-    void sort_msgs(std::vector<Message*> &msgs);
+    static void sort_msgs(std::vector<Message*> &msgs);
 private:
     std::vector<User> users;                        // to store our users
     std::map<std::string, std::string> public_keys; // map usernames to their publickeys
